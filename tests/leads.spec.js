@@ -37,3 +37,83 @@ test('deve cadastrar um lead na fila de espera ', async ({ page }) => {
 
 });
 
+test('validação de email incorreto', async ({ page }) => {
+  await page.goto('http://localhost:3000');
+
+  await page.getByRole('button', {name: /Aperte o play/}).click()
+
+  //Checkpoint 
+  await expect(
+    page.getByTestId('modal').getByRole('heading')
+  ).toHaveText('Fila de espera')
+
+  await page.locator('#name').fill('Henrique Gomes de Matos')
+  await page.locator('#email').fill('henrique.com')
+
+  await page.getByTestId('modal')
+  .getByText('Quero entrar na fila!').click()
+
+  await expect(page.locator('.alert')).toHaveText('Email incorreto')
+
+});
+
+
+test('validação campo de nome obrigatorio', async ({ page }) => {
+  await page.goto('http://localhost:3000');
+
+  await page.getByRole('button', {name: /Aperte o play/}).click()
+
+  //Checkpoint 
+  await expect(
+    page.getByTestId('modal').getByRole('heading')
+  ).toHaveText('Fila de espera')
+
+  
+  await page.locator('#email').fill('henriquemtss@gmail.com')
+
+  await page.getByTestId('modal')
+  .getByText('Quero entrar na fila!').click()
+
+  await expect(page.locator('.alert')).toHaveText('Campo obrigatório')
+
+});
+
+test('validação campo de email obrigatorio', async ({ page }) => {
+  await page.goto('http://localhost:3000');
+
+  await page.getByRole('button', {name: /Aperte o play/}).click()
+
+  //Checkpoint 
+  await expect(
+    page.getByTestId('modal').getByRole('heading')
+  ).toHaveText('Fila de espera')
+
+  await page.locator('#name').fill('Henrique Gomes de Matos')
+  
+
+  await page.getByTestId('modal')
+  .getByText('Quero entrar na fila!').click()
+
+  await expect(page.locator('.alert')).toHaveText('Campo obrigatório')
+
+});
+
+test('validação campos obrigatorios no modal', async ({ page }) => {
+  await page.goto('http://localhost:3000');
+
+  await page.getByRole('button', {name: /Aperte o play/}).click()
+
+  //Checkpoint 
+  await expect(
+    page.getByTestId('modal').getByRole('heading')
+  ).toHaveText('Fila de espera')  
+
+  await page.getByTestId('modal')
+  .getByText('Quero entrar na fila!').click()
+
+  await expect(page.locator('.alert')).toHaveText([
+    'Campo obrigatório',
+    'Campo obrigatório',
+  ])
+
+});
