@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-export class LadingPage {
+export class LandingPage {
 
     constructor(page){
         this.page = page

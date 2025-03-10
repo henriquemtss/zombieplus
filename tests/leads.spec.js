@@ -1,9 +1,14 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
-const { LadingPage } = require('./page/LandingPage')
+const { LandingPage } = require('./page/LandingPage')
+
+let landingPage 
+
+test.beforeEach(async ({page})=>{
+    landingPage = new LandingPage(page)
+})
 
 test('deve cadastrar um lead na fila de espera ', async ({ page }) => {
-  const landingPage = new LadingPage(page)
 
   await landingPage.visit()
 
@@ -17,7 +22,6 @@ test('deve cadastrar um lead na fila de espera ', async ({ page }) => {
 });
 
 test('validação de email incorreto', async ({ page }) => {
-  const landingPage = new LadingPage(page)
 
   await landingPage.visit()
 
@@ -31,7 +35,6 @@ test('validação de email incorreto', async ({ page }) => {
 
 
 test('validação campo de nome obrigatorio', async ({ page }) => {
-  const landingPage = new LadingPage(page)
 
   await landingPage.visit()
 
@@ -44,7 +47,6 @@ test('validação campo de nome obrigatorio', async ({ page }) => {
 });
 
 test('validação campo de email obrigatorio', async ({ page }) => {
-  const landingPage = new LadingPage(page)
 
   await landingPage.visit()
 
@@ -57,7 +59,6 @@ test('validação campo de email obrigatorio', async ({ page }) => {
 });
 
 test('validação campos obrigatorios no modal', async ({ page }) => {
-  const landingPage = new LadingPage(page)
 
   await landingPage.visit()
 
