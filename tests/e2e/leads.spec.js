@@ -1,11 +1,14 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
-const { LandingPage } = require('./page/LandingPage')
+const { LandingPage } = require('../page/LandingPage')
+const {Toast} = require('../page/Components')
 
 let landingPage 
+let toast
 
 test.beforeEach(async ({page})=>{
     landingPage = new LandingPage(page)
+    toast = new Toast(page)
 })
 
 test('deve cadastrar um lead na fila de espera ', async ({ page }) => {
@@ -17,7 +20,7 @@ test('deve cadastrar um lead na fila de espera ', async ({ page }) => {
   await landingPage.submitLeadForm('Henrique Gomes de Matos', 'henriquemtss@gmail.com')
 
   const message = 'Agradecemos por compartilhar seus dados conosco. Em breve, nossa equipe entrará em contato!'
-  await landingPage.toastHaveText(message)
+  await toast.haveText(message)
 
 });
 
