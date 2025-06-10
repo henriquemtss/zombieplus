@@ -28,14 +28,19 @@ test('deve cadastrar um lead na fila de espera ', async ({ page }) => {
 
 });
 
-test('não deve cadastrar quando um email já existe ', async ({ page }) => {
+test('não deve cadastrar quando um email já existe ', async ({ page, request }) => {
 
   const leadName = faker.person.fullName()
   const leadEmail = faker.internet.email()
 
-  await landingPage.visit()
-  await landingPage.openLeadModal()
-  await landingPage.submitLeadForm(leadName, leadEmail)
+   const newLead = await request.post('http://localhost:3333/leads', {
+    data: {
+      name: leadName,
+      email: leadEmail
+    }
+  })
+
+  expect(newLead.ok()).toBeTruthy()
 
   await landingPage.visit()
   await landingPage.openLeadModal()
