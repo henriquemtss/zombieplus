@@ -1,0 +1,82 @@
+{
+  "guerra_mundial_z": {
+    "title": "Guerra Mundial Z",
+    "overview": "Um ex-investigador da ONU tenta impedir uma pandemia global causada por zumbis.",
+    "company": "Paramount Pictures",
+    "release_year": 2013,
+    "featured": false,
+    "cover": "covers/world_war_z.png"
+  },
+  "exterminio": {
+    "title": "Extermínio",
+    "overview": "Após um vírus mortal, um grupo de sobreviventes tenta resistir ao caos em Londres.",
+    "company": "Fox Searchlight Pictures",
+    "release_year": 2002,
+    "featured": false,
+    "cover": "covers/28_days_later.png"
+  },
+  "madrugada_dos_mortos": {
+    "title": "Madrugada dos Mortos",
+    "overview": "Sobreviventes de um apocalipse zumbi se refugiam em um shopping center.",
+    "company": "Universal Pictures",
+    "release_year": 2004,
+    "featured": false,
+    "cover": "covers/dawn_of_the_dead.png"
+  },
+  "resident_evil_o_hospede_maldito": {
+    "title": "Resident Evil: O Hóspede Maldito",
+    "overview": "Uma equipe especial investiga um laboratório onde um vírus transformou humanos em mortos-vivos.",
+    "company": "Screen Gems",
+    "release_year": 2002,
+    "featured": false,
+    "cover": "covers/resident_evil.png"
+  },
+  "zumbilandia": {
+    "title": "Zumbilândia",
+    "overview": "Quatro sobreviventes cruzam os EUA em busca de segurança em meio a um apocalipse zumbi.",
+    "company": "Columbia Pictures",
+    "release_year": 2009,
+    "featured": false,
+    "cover": "covers/zombieland.png"
+  },
+  "invasao_zumbi": {
+    "title": "Invasão Zumbi",
+    "overview": "Passageiros de um trem tentam sobreviver a um surto zumbi que se espalha pela Coreia do Sul.",
+    "company": "Next Entertainment World",
+    "release_year": 2016,
+    "featured": false,
+    "cover": "covers/train_to_busan.png"
+  },
+  "a_noite_dos_mortos_vivos": {
+    "title": "A Noite dos Mortos-Vivos",
+    "overview": "Um grupo se refugia em uma casa para escapar de mortos-vivos famintos por carne humana.",
+    "company": "Continental Distributing",
+    "release_year": 1968,
+    "featured": false,
+    "cover": "covers/night_of_the_living_dead.png"
+  },
+  "meu_namorado_e_um_zumbi": {
+    "title": "Meu Namorado é um Zumbi",
+    "overview": "Um zumbi se apaixona por uma humana, reacendendo emoções e humanidade.",
+    "company": "Summit Entertainment",
+    "release_year": 2013,
+    "featured": false,
+    "cover": "covers/warm_bodies.png"
+  },
+  "todo_mundo_quase_morto": {
+    "title": "Todo Mundo Quase Morto",
+    "overview": "Dois amigos tentam sobreviver a uma invasão zumbi com muito humor britânico.",
+    "company": "Universal Pictures",
+    "release_year": 2004,
+    "featured": false,
+    "cover": "covers/shaun_of_the_dead.png"
+  },
+  "exterminio_2": {
+    "title": "Extermínio 2",
+    "overview": "A tentativa de repopular Londres após o surto zumbi não sai como o esperado.",
+    "company": "Fox Atomic",
+    "release_year": 2007,
+    "featured": false,
+    "cover": "covers/28_weeks_later.png"
+  }
+}

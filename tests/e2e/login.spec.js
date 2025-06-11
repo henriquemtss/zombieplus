@@ -14,17 +14,18 @@ test.beforeEach(async ({ page }) => {
     toast = new Toast(page)
     moviesPage = new MoviesPage(page)
 
+    await loginPage.visit()
 })
 
 test('logar como administrador', async ({ page }) => {
-    await loginPage.visit()
+    
 
     await loginPage.submit('admin@zombieplus.com', 'pwd123')
     await moviesPage.isLoggedIn()
 })
 
 test('não deve logar com senha incorreta', async ({ page }) => {
-    await loginPage.visit()
+    
 
     await loginPage.submit('admin@zombieplus.com', 'pwd1234')
 
@@ -33,7 +34,7 @@ test('não deve logar com senha incorreta', async ({ page }) => {
 })
 
 test('não deve logar quando o email é inválido', async ({ page }) => {
-    await loginPage.visit()
+    
 
     await loginPage.submit('www.test.com.br', 'pwd1234')
 
@@ -41,7 +42,7 @@ test('não deve logar quando o email é inválido', async ({ page }) => {
 })
 
 test('não deve logar quando o email não é preenchido', async ({ page }) => {
-    await loginPage.visit()
+    
 
     await loginPage.submit('', 'pwd1234')
 
@@ -49,7 +50,7 @@ test('não deve logar quando o email não é preenchido', async ({ page }) => {
 })
 
 test('não deve logar quando a senha não é preenchido', async ({ page }) => {
-    await loginPage.visit()
+    
 
     await loginPage.submit('test@gmail.com', '')
 
@@ -57,7 +58,7 @@ test('não deve logar quando a senha não é preenchido', async ({ page }) => {
 })
 
 test('não deve logar quando a nenhum não é preenchido', async ({ page }) => {
-    await loginPage.visit()
+    
 
     await loginPage.submit('', '')
 

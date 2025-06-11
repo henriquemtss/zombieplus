@@ -10,6 +10,9 @@ let toast
 test.beforeEach(async ({page})=>{
     landingPage = new LandingPage(page)
     toast = new Toast(page)
+
+    await landingPage.visit()
+    await landingPage.openLeadModal()
 })
 
 test('deve cadastrar um lead na fila de espera ', async ({ page }) => {
@@ -17,9 +20,7 @@ test('deve cadastrar um lead na fila de espera ', async ({ page }) => {
   const leadName = faker.person.fullName()
   const leadEmail = faker.internet.email()
 
-  await landingPage.visit()
-
-  await landingPage.openLeadModal()
+  
 
   await landingPage.submitLeadForm(leadName, leadEmail)
 
@@ -42,8 +43,6 @@ test('não deve cadastrar quando um email já existe ', async ({ page, request }
 
   expect(newLead.ok()).toBeTruthy()
 
-  await landingPage.visit()
-  await landingPage.openLeadModal()
   await landingPage.submitLeadForm(leadName, leadEmail)
 
   const message = 'O endereço de e-mail fornecido já está registrado em nossa fila de espera.'
@@ -52,10 +51,6 @@ test('não deve cadastrar quando um email já existe ', async ({ page, request }
 });
 
 test('validação de email incorreto', async ({ page }) => {
-
-  await landingPage.visit()
-
-  await landingPage.openLeadModal()
 
   await landingPage.submitLeadForm('Henrique Gomes de Matos', 'henriquemtss.com')
 
@@ -66,10 +61,6 @@ test('validação de email incorreto', async ({ page }) => {
 
 test('validação campo de nome obrigatorio', async ({ page }) => {
 
-  await landingPage.visit()
-
-  await landingPage.openLeadModal()
-
   await landingPage.submitLeadForm('', 'henriquemtss@gmail.com')
 
   await landingPage.alertHaveText('Campo obrigatório')
@@ -77,11 +68,7 @@ test('validação campo de nome obrigatorio', async ({ page }) => {
 });
 
 test('validação campo de email obrigatorio', async ({ page }) => {
-
-  await landingPage.visit()
-
-  await landingPage.openLeadModal()
-
+  
   await landingPage.submitLeadForm('Henrique Gomes de Matos', '')
 
   await landingPage.alertHaveText('Campo obrigatório')
@@ -89,11 +76,7 @@ test('validação campo de email obrigatorio', async ({ page }) => {
 });
 
 test('validação campos obrigatorios no modal', async ({ page }) => {
-
-  await landingPage.visit()
-
-  await landingPage.openLeadModal()
-
+  
   await landingPage.submitLeadForm('', '')
 
   await await landingPage.alertHaveText([
