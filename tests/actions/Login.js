@@ -1,6 +1,6 @@
 const { expect } = require('@playwright/test')
 
-export class LoginPage {
+export class Login {
 
     constructor(page) {
         this.page = page;
@@ -12,6 +12,12 @@ export class LoginPage {
         const loginForm = this.page.locator('.login-form')
         await expect(loginForm).toBeVisible()
     }
+    
+    async isLoggedIn() {
+        await this.page.waitForLoadState('networkidle')
+        await expect(this.page).toHaveURL(/.*admin/)
+    }
+
 
     async submit(email, password) {
         await this.page.getByPlaceholder('E-mail').fill(email)
