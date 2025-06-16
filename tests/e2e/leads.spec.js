@@ -1,18 +1,11 @@
-// @ts-check
-import { test, expect } from '@playwright/test';
-const { LandingPage } = require('../page/LandingPage')
-const {Toast} = require('../page/Components')
+const {test, expect} = require('../support');
 const { faker } = require('@faker-js/faker');
 
-let landingPage 
-let toast
 
 test.beforeEach(async ({page})=>{
-    landingPage = new LandingPage(page)
-    toast = new Toast(page)
 
-    await landingPage.visit()
-    await landingPage.openLeadModal()
+    await page.landing.visit()
+    await page.landing.openLeadModal()
 })
 
 test('deve cadastrar um lead na fila de espera ', async ({ page }) => {
@@ -22,10 +15,10 @@ test('deve cadastrar um lead na fila de espera ', async ({ page }) => {
 
   
 
-  await landingPage.submitLeadForm(leadName, leadEmail)
+  await page.landing.submitLeadForm(leadName, leadEmail)
 
   const message = 'Agradecemos por compartilhar seus dados conosco. Em breve, nossa equipe entrará em contato!'
-  await toast.containText(message)
+  await page.toast.containText(message)
 
 });
 
@@ -43,43 +36,43 @@ test('não deve cadastrar quando um email já existe ', async ({ page, request }
 
   expect(newLead.ok()).toBeTruthy()
 
-  await landingPage.submitLeadForm(leadName, leadEmail)
+  await page.landing.submitLeadForm(leadName, leadEmail)
 
   const message = 'O endereço de e-mail fornecido já está registrado em nossa fila de espera.'
-  await toast.containText(message)
+  await page.toast.containText(message)
 
 });
 
 test('validação de email incorreto', async ({ page }) => {
 
-  await landingPage.submitLeadForm('Henrique Gomes de Matos', 'henriquemtss.com')
+  await page.landing.submitLeadForm('Henrique Gomes de Matos', 'henriquemtss.com')
 
-  await landingPage.alertHaveText('Email incorreto')
+  await page.landing.alertHaveText('Email incorreto')
 
 });
 
 
 test('validação campo de nome obrigatorio', async ({ page }) => {
 
-  await landingPage.submitLeadForm('', 'henriquemtss@gmail.com')
+  await page.landing.submitLeadForm('', 'henriquemtss@gmail.com')
 
-  await landingPage.alertHaveText('Campo obrigatório')
+  await page.landing.alertHaveText('Campo obrigatório')
 
 });
 
 test('validação campo de email obrigatorio', async ({ page }) => {
   
-  await landingPage.submitLeadForm('Henrique Gomes de Matos', '')
+  await page.landing.submitLeadForm('Henrique Gomes de Matos', '')
 
-  await landingPage.alertHaveText('Campo obrigatório')
+  await page.landing.alertHaveText('Campo obrigatório')
 
 });
 
 test('validação campos obrigatorios no modal', async ({ page }) => {
 
-  await landingPage.submitLeadForm('', '')
+  await page.landing.submitLeadForm('', '')
 
-  await await landingPage.alertHaveText([
+  await await page.landing.alertHaveText([
     'Campo obrigatório',
     'Campo obrigatório',
   ])

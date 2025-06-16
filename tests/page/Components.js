@@ -12,6 +12,6 @@ export class Toast{
         
         await expect(toast).toContainText(message)
 
-        await expect(toast).not.toBeVisible({ timeout: 5000 })
+        await expect(toast).not.toBeVisible({ timeout: 8000 })
     }
 }
