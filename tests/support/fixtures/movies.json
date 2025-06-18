@@ -4,16 +4,16 @@
     "overview": "Um ex-investigador da ONU tenta impedir uma pandemia global causada por zumbis.",
     "company": "Paramount Pictures",
     "release_year": 2013,
-    "featured": false,
-    "cover": "covers/world_war_z.png"
+    "featured": true,
+    "cover": "/covers/movies/wwz.png"
   },
-  "exterminio": {
+  "duplicate": {
     "title": "Extermínio",
     "overview": "Após um vírus mortal, um grupo de sobreviventes tenta resistir ao caos em Londres.",
-    "company": "Fox Searchlight Pictures",
+    "company": "Paramount Pictures",
     "release_year": 2002,
     "featured": false,
-    "cover": "covers/28_days_later.png"
+    "cover": "/covers/movies/exterminio.jpg"
   },
   "madrugada_dos_mortos": {
     "title": "Madrugada dos Mortos",
