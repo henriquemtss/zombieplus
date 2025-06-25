@@ -21,7 +21,7 @@
     "company": "Paramount Pictures",
     "release_year": 2004,
     "featured": false,
-    "cover": "covers/madrugada.jpg"
+    "cover": "/covers/movies/madrugada.jpg"
   },
   "search": {
     "input": "zumbi",
@@ -37,7 +37,7 @@
         "company": "Sony Pictures",
         "release_year": 2009,
         "featured": false,
-        "cover": "covers/zombieland.png"
+        "cover": "/covers/movies/zombieland.png"
       },
       {
         "title": "Invasão Zumbi",
@@ -45,7 +45,7 @@
         "company": "Fox Entertainment",
         "release_year": 2016,
         "featured": false,
-        "cover": "covers/train_to_busan.png"
+        "cover": "/covers/movies/train_to_busan.png"
       },
       {
         "title": "Meu Namorado é um Zumbi",
@@ -53,7 +53,7 @@
         "company": "Universal Pictures",
         "release_year": 2013,
         "featured": false,
-        "cover": "covers/warm_bodies.png"
+        "cover": "/covers/movies/warm_bodies.png"
       }
     ]
   }

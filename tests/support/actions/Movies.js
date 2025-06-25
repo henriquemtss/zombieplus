@@ -8,7 +8,7 @@ export class Movies {
     }
 
     async goForm(){
-        await this.page.locator('a[href$="register"]').click()
+        await this.page.locator('a[href$="movies/register"]').click()
     }
 
     async submitForm() {
@@ -48,6 +48,11 @@ export class Movies {
         .fill(target)
         
         await this.page.click('.actions button')
+    }
+
+    async tableHave(content) {
+        const rows = await this.page.getByRole('row')
+        await expect(rows).toContainText(content)
     }
 
     async alertHaveText(target){
