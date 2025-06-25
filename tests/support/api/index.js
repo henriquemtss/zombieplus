@@ -62,4 +62,27 @@ export class Api {
 
         expect(response.ok()).toBeTruthy()
     }
+
+    async postTvshow(tvshow) {
+
+        const companyId = await this.getComapanyIdByName(tvshow.company)
+
+        const response = await this.request.post('http://localhost:3333/tvshows', {
+            headers: {
+                Authorization: this.token,
+                ContentType: 'multipart/form-data',
+                Accept: 'application/json, text/plain, */*'
+            },
+            multipart: {
+                title: tvshow.title,
+                overview: tvshow.overview,
+                featured: tvshow.featured,
+                release_year: tvshow.release_year,
+                company_id: companyId,
+                seasons: tvshow.season  
+            }
+        })
+
+        expect(response.ok()).toBeTruthy()
+    }
 }
