@@ -5,8 +5,11 @@ export class TvShows{
         this.page = page;
     }
 
-    async goForm(){
+    async goTvShowsTab() {
         await this.page.locator('a[href$="/admin/tvshows"]').click()
+    }
+
+    async goForm(){
         await this.page.locator('a[href$="tvshows/register"]').click()
     }
 
@@ -16,6 +19,7 @@ export class TvShows{
 
     async create(tvshow){
 
+        await this.goTvShowsTab()
         await this.goForm()
 
         await this.page.getByLabel('Titulo da série').fill(tvshow.title)
@@ -46,5 +50,27 @@ export class TvShows{
 
         await this.submitForm()
         
+    }
+
+    async remove(title) {
+        await this.page.getByRole('row', {name: title}).getByRole('button').click()
+
+        await this.page.click('.confirm-removal')
+    }
+
+    async search(target) {
+        await this.page.getByPlaceholder('Busque pelo nome')
+        .fill(target)
+        
+        await this.page.click('.actions button')
+    }
+
+    async tableHave(content) {
+        const rows = await this.page.getByRole('row')
+        await expect(rows).toContainText(content)
+    }
+
+    async alertHaveText(target){
+        await expect(this.page.locator('.alert')).toHaveText(target)
     }
 }
