@@ -1,11 +1,17 @@
 const {test, expect} = require('../support');
 const { faker } = require('@faker-js/faker');
+const { executeSQL } = require('../support/database')
 
 
 test.beforeEach(async ({page})=>{
 
     await page.leads.visit()
     await page.leads.openLeadModal()
+})
+
+test.beforeAll(async ({ }) => {
+    await executeSQL(`DELETE FROM leads`)
+
 })
 
 test('deve cadastrar um lead na fila de espera ', async ({ page }) => {
